@@ -1,4 +1,4 @@
-" surround.vim - Surroundings
+" resize.vim    resizing the screen
 " Author:       Breuckelen (Benjamin Attal)
 " Version:      1.0
 
