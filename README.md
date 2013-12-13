@@ -1,7 +1,8 @@
 vim-resize
 ==========
 
-*Are you a vim user? Don't have anything to use those useless arrow keys for?* If you answered yes to either of these questions...
-
+*Are you a vim user? Don't have anything to use those useless arrow keys for?*
 * **Download this plugin for smart window resizing using the arrow keys!**
-* **Satisfaction guaranteed!**
+
+## Usage
+* use the arrow keys in normal mode to resize a vertical or horizontal split in the desired direction
