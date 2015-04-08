@@ -6,7 +6,7 @@
 "Is<direction>Most Boolean Functions ---------------------- {{{
 function! IsRightMost()
     let oldw = winnr()
-    silent! exec "normal! \<c-w>l"  
+    silent! exec "normal! \<c-w>l"
     let neww = winnr()
     silent! exec oldw.'wincmd w'
     return oldw == neww
@@ -14,7 +14,7 @@ endfunction
 
 function! IsBottomMost()
     let oldw = winnr()
-    silent! exec "normal! \<c-w>j"  
+    silent! exec "normal! \<c-w>j"
     let neww = winnr()
     silent! exec oldw.'wincmd w'
     return oldw == neww
@@ -22,7 +22,7 @@ endfunction
 
 function! IsTopMost()
     let oldw = winnr()
-    silent! exec "normal! \<c-w>k"  
+    silent! exec "normal! \<c-w>k"
     let neww = winnr()
     silent! exec oldw.'wincmd w'
     return oldw == neww
@@ -30,7 +30,7 @@ endfunction
 
 function! IsLeftMost()
     let oldw = winnr()
-    silent! exec "normal! \<c-w>h"  
+    silent! exec "normal! \<c-w>h"
     let neww = winnr()
     silent! exec oldw.'wincmd w'
     return oldw == neww
