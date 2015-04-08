@@ -2,6 +2,10 @@
 " Author:       Breuckelen (Benjamin Attal)
 " Version:      1.0
 
+" Globals {{{
+let g:resize_count = 1
+
+"}}}
 
 "Is<direction>Most Boolean Functions ---------------------- {{{
 function! IsRightMost()
@@ -37,13 +41,15 @@ function! IsLeftMost()
 endfunction
 " }}}
 
-"Resize<direction> function ---------------------- {{{
-let g:resize_count = 1
-
-function! ResizeUp(n)
+"Resize<direction> functions and helpers ---------------------- {{{
+function! CacheResizeCount(n)
     if a:n > 0
         let g:resize_count = a:n
     endif
+endfunction
+
+function! ResizeUp(n)
+    CacheResizeCount(a:n)
     if IsBottomMost()
         if IsTopMost()
             silent! exec "normal " . g:resize_count . "\<c-w>-"
@@ -56,9 +62,7 @@ function! ResizeUp(n)
 endfunction
 
 function! ResizeDown(n)
-    if a:n > 0
-        let g:resize_count = a:n
-    endif
+    CacheResizeCount(a:n)
     if IsBottomMost()
         if IsTopMost()
             silent! exec "normal " . g:resize_count . "\<c-w>+"
@@ -71,9 +75,7 @@ function! ResizeDown(n)
 endfunction
 
 function! ResizeLeft(n)
-    if a:n > 0
-        let g:resize_count = a:n
-    endif
+    CacheResizeCount(a:n)
     if IsRightMost()
         if !IsLeftMost()
             silent! exec "normal " . g:resize_count . "\<c-w>>"
@@ -84,9 +86,7 @@ function! ResizeLeft(n)
 endfunction
 
 function! ResizeRight(n)
-    if a:n > 0
-        let g:resize_count = a:n
-    endif
+    CacheResizeCount(a:n)
     if IsRightMost()
         if !IsLeftMost()
             silent! exec "normal " . g:resize_count . "\<c-w><"
