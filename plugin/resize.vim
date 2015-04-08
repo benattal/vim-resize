@@ -43,7 +43,7 @@ endfunction
 
 "Resize<direction> functions and helpers ---------------------- {{{
 function! CacheResizeCount(n)
-    if a:n > 0
+    if a:n
         let g:resize_count = a:n
     endif
 endfunction
@@ -97,7 +97,7 @@ function! ResizeRight(n)
 endfunction
 " }}}
 
-nnoremap <up> :<C-U>call ResizeUp(v:count ? v:count : 0)<cr>
-nnoremap <down> :<C-U>call ResizeDown(v:count ? v:count : 0)<cr>
-nnoremap <left> :<C-U>call ResizeLeft(v:count ? v:count : 0)<cr>
-nnoremap <right> :<C-U>call ResizeRight(v:count ? v:count : 0)<cr>
+nnoremap <up> :<C-U>call ResizeUp(v:count)<cr>
+nnoremap <down> :<C-U>call ResizeDown(v:count)<cr>
+nnoremap <left> :<C-U>call ResizeLeft(v:count)<cr>
+nnoremap <right> :<C-U>call ResizeRight(v:count)<cr>
