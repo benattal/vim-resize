@@ -44,12 +44,14 @@ endfunction
 "Resize<direction> functions and helpers ---------------------- {{{
 function! CacheResizeCount(n)
     if a:n
-        let g:resize_count = a:n
+        return a:n
+    else
+        return g:resize_count
     endif
 endfunction
 
 function! ResizeUp(n)
-    CacheResizeCount(a:n)
+    let g:resize_count = CacheResizeCount(a:n)
     if IsBottomMost()
         if IsTopMost()
             silent! exec "normal! " . g:resize_count . "\<c-w>-"
@@ -62,7 +64,7 @@ function! ResizeUp(n)
 endfunction
 
 function! ResizeDown(n)
-    CacheResizeCount(a:n)
+    let g:resize_count = CacheResizeCount(a:n)
     if IsBottomMost()
         if IsTopMost()
             silent! exec "normal! " . g:resize_count . "\<c-w>+"
@@ -75,7 +77,7 @@ function! ResizeDown(n)
 endfunction
 
 function! ResizeLeft(n)
-    CacheResizeCount(a:n)
+    let g:resize_count = CacheResizeCount(a:n)
     if IsRightMost()
         if !IsLeftMost()
             silent! exec "normal! " . g:resize_count . "\<c-w>>"
@@ -86,7 +88,7 @@ function! ResizeLeft(n)
 endfunction
 
 function! ResizeRight(n)
-    CacheResizeCount(a:n)
+    let g:resize_count = CacheResizeCount(a:n)
     if IsRightMost()
         if !IsLeftMost()
             silent! exec "normal! " . g:resize_count . "\<c-w><"
