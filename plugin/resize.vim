@@ -41,44 +41,44 @@ endfunction
 function! ResizeUp()
     if IsBottomMost()
         if IsTopMost()
-            silent! exec "normal \<c-w>-"
+            silent! exec "normal! \<c-w>-"
         else
-            silent! exec "normal \<c-w>+"
+            silent! exec "normal! \<c-w>+"
         endif
     else
-        silent! exec "normal \<c-w>-"
+        silent! exec "normal! \<c-w>-"
     endif
 endfunction
 
 function! ResizeDown()
     if IsBottomMost()
         if IsTopMost()
-            silent! exec "normal \<c-w>+"
+            silent! exec "normal! \<c-w>+"
         else
-            silent! exec "normal \<c-w>-"
+            silent! exec "normal! \<c-w>-"
         endif
     else
-        silent! exec "normal \<c-w>+"
+        silent! exec "normal! \<c-w>+"
     endif
 endfunction
 
 function! ResizeLeft()
     if IsRightMost()
         if !IsLeftMost()
-            silent! exec "normal \<c-w>>"
+            silent! exec "normal! \<c-w>>"
         endif
     else
-        silent! exec "normal \<c-w><"
+        silent! exec "normal! \<c-w><"
     endif
 endfunction
 
 function! ResizeRight()
     if IsRightMost()
         if !IsLeftMost()
-            silent! exec "normal \<c-w><"
+            silent! exec "normal! \<c-w><"
         endif
     else
-        silent! exec "normal \<c-w>>"
+        silent! exec "normal! \<c-w>>"
     endif
 endfunction
 " }}}
