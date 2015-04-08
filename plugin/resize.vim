@@ -1,4 +1,4 @@
-" surround.vim - Surroundings
+" resize.vim    resizing the screen
 " Author:       Breuckelen (Benjamin Attal)
 " Version:      1.0
 
@@ -38,52 +38,66 @@ endfunction
 " }}}
 
 "Resize<direction> function ---------------------- {{{
-function! ResizeUp()
+let g:resize_count = 1
+
+function! ResizeUp(n)
+    if a:n > 0
+        let g:resize_count = a:n
+    endif
     if IsBottomMost()
         if IsTopMost()
-            silent! exec "normal \<c-w>-"
+            silent! exec "normal " . g:resize_count . "\<c-w>-"
         else
-            silent! exec "normal \<c-w>+"
+            silent! exec "normal " . g:resize_count . "\<c-w>+"
         endif
     else
-        silent! exec "normal \<c-w>-"
+        silent! exec "normal " . g:resize_count . "\<c-w>-"
     endif
 endfunction
 
-function! ResizeDown()
+function! ResizeDown(n)
+    if a:n > 0
+        let g:resize_count = a:n
+    endif
     if IsBottomMost()
         if IsTopMost()
-            silent! exec "normal \<c-w>+"
+            silent! exec "normal " . g:resize_count . "\<c-w>+"
         else
-            silent! exec "normal \<c-w>-"
+            silent! exec "normal " . g:resize_count . "\<c-w>-"
         endif
     else
-        silent! exec "normal \<c-w>+"
+        silent! exec "normal " . g:resize_count . "\<c-w>+"
     endif
 endfunction
 
-function! ResizeLeft()
+function! ResizeLeft(n)
+    if a:n > 0
+        let g:resize_count = a:n
+    endif
     if IsRightMost()
         if !IsLeftMost()
-            silent! exec "normal \<c-w>>"
+            silent! exec "normal " . g:resize_count . "\<c-w>>"
         endif
     else
-        silent! exec "normal \<c-w><"
+        silent! exec "normal " . g:resize_count . "\<c-w><"
     endif
 endfunction
 
-function! ResizeRight()
+function! ResizeRight(n)
+    if a:n > 0
+        let g:resize_count = a:n
+    endif
     if IsRightMost()
         if !IsLeftMost()
-            silent! exec "normal \<c-w><"
+            silent! exec "normal " . g:resize_count . "\<c-w><"
         endif
     else
-        silent! exec "normal \<c-w>>"
+        silent! exec "normal " . g:resize_count . "\<c-w>>"
     endif
 endfunction
 " }}}
 
-nnoremap <up> :call ResizeUp()<cr>
-nnoremap <down> :call ResizeDown()<cr>
-nnoremap <left> :call ResizeLeft()<cr>
-nnoremap <right> :call ResizeRight()<cr>
+nnoremap <up> :<C-U>call ResizeUp(v:count ? v:count : 0)<cr>
+nnoremap <down> :<C-U>call ResizeDown(v:count ? v:count : 0)<cr>
+nnoremap <left> :<C-U>call ResizeLeft(v:count ? v:count : 0)<cr>
+nnoremap <right> :<C-U>call ResizeRight(v:count ? v:count : 0)<cr>
