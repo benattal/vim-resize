@@ -10,7 +10,7 @@ let g:resize_count = 1
 "Is<direction>Most Boolean Functions ---------------------- {{{
 function! IsRightMost()
     let oldw = winnr()
-    silent! exec "normal! \<c-w>l"  
+    silent! exec "normal! \<c-w>l"
     let neww = winnr()
     silent! exec oldw.'wincmd w'
     return oldw == neww
@@ -18,7 +18,7 @@ endfunction
 
 function! IsBottomMost()
     let oldw = winnr()
-    silent! exec "normal! \<c-w>j"  
+    silent! exec "normal! \<c-w>j"
     let neww = winnr()
     silent! exec oldw.'wincmd w'
     return oldw == neww
@@ -26,7 +26,7 @@ endfunction
 
 function! IsTopMost()
     let oldw = winnr()
-    silent! exec "normal! \<c-w>k"  
+    silent! exec "normal! \<c-w>k"
     let neww = winnr()
     silent! exec oldw.'wincmd w'
     return oldw == neww
@@ -34,7 +34,7 @@ endfunction
 
 function! IsLeftMost()
     let oldw = winnr()
-    silent! exec "normal! \<c-w>h"  
+    silent! exec "normal! \<c-w>h"
     let neww = winnr()
     silent! exec oldw.'wincmd w'
     return oldw == neww
@@ -52,12 +52,12 @@ function! ResizeUp(n)
     CacheResizeCount(a:n)
     if IsBottomMost()
         if IsTopMost()
-            silent! exec "normal " . g:resize_count . "\<c-w>-"
+            silent! exec "normal! " . g:resize_count . "\<c-w>-"
         else
-            silent! exec "normal " . g:resize_count . "\<c-w>+"
+            silent! exec "normal! " . g:resize_count . "\<c-w>+"
         endif
     else
-        silent! exec "normal " . g:resize_count . "\<c-w>-"
+        silent! exec "normal! " . g:resize_count . "\<c-w>-"
     endif
 endfunction
 
@@ -65,12 +65,12 @@ function! ResizeDown(n)
     CacheResizeCount(a:n)
     if IsBottomMost()
         if IsTopMost()
-            silent! exec "normal " . g:resize_count . "\<c-w>+"
+            silent! exec "normal! " . g:resize_count . "\<c-w>+"
         else
-            silent! exec "normal " . g:resize_count . "\<c-w>-"
+            silent! exec "normal! " . g:resize_count . "\<c-w>-"
         endif
     else
-        silent! exec "normal " . g:resize_count . "\<c-w>+"
+        silent! exec "normal! " . g:resize_count . "\<c-w>+"
     endif
 endfunction
 
@@ -78,10 +78,10 @@ function! ResizeLeft(n)
     CacheResizeCount(a:n)
     if IsRightMost()
         if !IsLeftMost()
-            silent! exec "normal " . g:resize_count . "\<c-w>>"
+            silent! exec "normal! " . g:resize_count . "\<c-w>>"
         endif
     else
-        silent! exec "normal " . g:resize_count . "\<c-w><"
+        silent! exec "normal! " . g:resize_count . "\<c-w><"
     endif
 endfunction
 
@@ -89,10 +89,10 @@ function! ResizeRight(n)
     CacheResizeCount(a:n)
     if IsRightMost()
         if !IsLeftMost()
-            silent! exec "normal " . g:resize_count . "\<c-w><"
+            silent! exec "normal! " . g:resize_count . "\<c-w><"
         endif
     else
-        silent! exec "normal " . g:resize_count . "\<c-w>>"
+        silent! exec "normal! " . g:resize_count . "\<c-w>>"
     endif
 endfunction
 " }}}
