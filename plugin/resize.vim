@@ -104,7 +104,12 @@ function! ResizeRight(n)
 endfunction
 " }}}
 
-nnoremap <up> :<><C-U>call ResizeUp(v:count)<cr>
-nnoremap <down> :<C-U>call ResizeDown(v:count)<cr>
-nnoremap <left> :<C-U>call ResizeLeft(v:count)<cr>
-nnoremap <right> :<C-U>call ResizeRight(v:count)<cr>
+command! CmdResizeLeft call <SID>ResizeLeft(v:count)
+command! CmdResizeDown call <SID>TmuxWinResize(v:count)
+command! CmdResizeUp call <SID>TmuxWinResize(v:count)
+command! CmdResizeRight call <SID>TmuxWinResize(v:count)
+
+nnoremap <silent> <c-left> :CmdResizeLeft<cr>
+nnoremap <silent> <c-down> :CmdResizeDown<cr>
+nnoremap <silent> <c-up> :CmdResizeUp<cr>
+nnoremap <silent> <c-right> :CmdResizeRight<cr>
