@@ -48,7 +48,7 @@ function! CacheResizeCount(n)
     echo ""
 endfunction
 
-function! ResizeUp(n)
+function! s:ResizeUp(n)
     let g:resize_count = CacheResizeCount(a:n)
     if IsBottomMost()
         if IsTopMost()
@@ -62,7 +62,7 @@ function! ResizeUp(n)
     echo ""
 endfunction
 
-function! ResizeDown(n)
+function! s:ResizeDown(n)
     let g:resize_count = CacheResizeCount(a:n)
     if IsBottomMost()
         if IsTopMost()
@@ -76,7 +76,7 @@ function! ResizeDown(n)
     echo ""
 endfunction
 
-function! ResizeLeft(n)
+function! s:ResizeLeft(n)
     let g:resize_count = CacheResizeCount(a:n)
     if IsRightMost()
         if !IsLeftMost()
@@ -88,7 +88,7 @@ function! ResizeLeft(n)
     echo ""
 endfunction
 
-function! ResizeRight(n)
+function! s:ResizeRight(n)
     let g:resize_count = CacheResizeCount(a:n)
     if IsRightMost()
         if !IsLeftMost()
