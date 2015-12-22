@@ -2,12 +2,10 @@
 " Author:       Breuckelen (Benjamin Attal)
 " Version:      1.0
 
-" Globals {{{
+" Globals
 let g:resize_count = 1
 
-"}}}
-
-"Is<direction>Most Boolean Functions ---------------------- {{{
+"Is<direction>Most Boolean Functions
 function! IsRightMost()
     let oldw = winnr()
     silent! exec "normal! \<c-w>l"
@@ -39,9 +37,8 @@ function! IsLeftMost()
     silent! exec oldw.'wincmd w'
     return oldw == neww
 endfunction
-" }}}
 
-"Resize<direction> functions and helpers ---------------------- {{{
+"Resize<direction> functions and helpers
 function! CacheResizeCount(n)
     if a:n
         return a:n
@@ -102,12 +99,11 @@ function! ResizeRight(n)
     endif
     echo ""
 endfunction
-" }}}
 
 command! CmdResizeLeft call <SID>ResizeLeft(v:count)
-command! CmdResizeDown call <SID>TmuxWinResize(v:count)
-command! CmdResizeUp call <SID>TmuxWinResize(v:count)
-command! CmdResizeRight call <SID>TmuxWinResize(v:count)
+command! CmdResizeDown call <SID>ResizeDown(v:count)
+command! CmdResizeUp call <SID>ResizeUp(v:count)
+command! CmdResizeRight call <SID>ResizeRight(v:count)
 
 nnoremap <silent> <c-left> :CmdResizeLeft<cr>
 nnoremap <silent> <c-down> :CmdResizeDown<cr>
