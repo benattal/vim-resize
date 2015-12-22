@@ -48,6 +48,7 @@ function! CacheResizeCount(n)
     else
         return g:resize_count
     endif
+    echo ""
 endfunction
 
 function! ResizeUp(n)
@@ -61,6 +62,7 @@ function! ResizeUp(n)
     else
         silent! exec "normal! " . g:resize_count . "\<c-w>-"
     endif
+    echo ""
 endfunction
 
 function! ResizeDown(n)
@@ -74,6 +76,7 @@ function! ResizeDown(n)
     else
         silent! exec "normal! " . g:resize_count . "\<c-w>+"
     endif
+    echo ""
 endfunction
 
 function! ResizeLeft(n)
@@ -85,6 +88,7 @@ function! ResizeLeft(n)
     else
         silent! exec "normal! " . g:resize_count . "\<c-w><"
     endif
+    echo ""
 endfunction
 
 function! ResizeRight(n)
@@ -96,10 +100,11 @@ function! ResizeRight(n)
     else
         silent! exec "normal! " . g:resize_count . "\<c-w>>"
     endif
+    echo ""
 endfunction
 " }}}
 
-nnoremap <up> :<C-U>call ResizeUp(v:count)<cr>
+nnoremap <up> :<><C-U>call ResizeUp(v:count)<cr>
 nnoremap <down> :<C-U>call ResizeDown(v:count)<cr>
 nnoremap <left> :<C-U>call ResizeLeft(v:count)<cr>
 nnoremap <right> :<C-U>call ResizeRight(v:count)<cr>
