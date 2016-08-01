@@ -1,7 +1,7 @@
 vim-resize
 ==========
 
-*Are you a vim user? Don't have anything to use those useless arrow keys for?*
+*Are you a vim user? Don't know what to use the arrow keys for?*
 * **Download this plugin for smart window resizing using the arrow keys!**
 
 ## Usage
@@ -18,8 +18,8 @@ By default, this plugin uses these mappings:
     nnoremap <silent> <c-up> :CmdResizeUp<cr>
     nnoremap <silent> <c-right> :CmdResizeRight<cr>
 
-If you want to set your own mappings, do:
+If you want to set your own mappings, copy this line into your vimrc:
 
     let g:vim_resize_disable_auto_mappings = 1
 
-and then set your mappings in your ~/.vimrc file.
+and use the format above to customize them to your liking.
