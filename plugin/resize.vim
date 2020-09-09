@@ -3,7 +3,10 @@
 " Version:      1.0
 
 " Globals
-let g:resize_count = 1
+if !exists('g:resize_count')
+    let g:resize_count = 1
+endif
+
 
 "Is<direction>Most Boolean Functions
 function! IsRightMost()
